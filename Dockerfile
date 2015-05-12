@@ -12,6 +12,11 @@ RUN apt-get update                                                              
     curl -sO https://static.rust-lang.org/dist/rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz   && \
     tar -xvzf rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz                                    && \
     ./rust-$RUST_VERSION-x86_64-unknown-linux-gnu/install.sh                                        && \
+# install rust sources
+    curl -sO https://static.rust-lang.org/dist/rustc-$RUST_VERSION-src.tar.gz                       && \
+    tar -xvzf rustc-$RUST_VERSION-src.tar.gz                                                        && \
+    mkdir -p /usr/local/src/rust                                                                    && \
+    mv rustc-$RUST_VERSION/src /usr/local/src/rust/                                                 && \
 # source dir
     mkdir /source                                                                                   && \
 # cleanup
