@@ -1,4 +1,4 @@
-FROM debian/jessie
+FROM debian:jessie
 MAINTAINER Michele Bertasi
 
 ENV RUST_VERSION=1.0.0-beta.4
