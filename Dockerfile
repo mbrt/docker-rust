@@ -17,6 +17,7 @@ RUN apt-get update                                                              
     tar -xvzf rustc-$RUST_VERSION-src.tar.gz                                                        && \
     mkdir -p /usr/local/src/rust                                                                    && \
     mv rustc-$RUST_VERSION/src /usr/local/src/rust/                                                 && \
+    chmod -R a+rx /usr/local/src/rust                                                               && \
 # source dir
     mkdir /source                                                                                   && \
 # cleanup
