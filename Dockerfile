@@ -5,7 +5,7 @@ ENV RUST_VERSION=1.0.0
 
 # install pagkages
 RUN apt-get update                                                                                  && \
-    apt-get install -y --no-install-recommends build-essential curl git gdb                         && \
+    apt-get install -y --no-install-recommends build-essential curl ca-certificates git gdb         && \
 # install rust binaries
     cd /tmp                                                                                         && \
     curl -sO https://static.rust-lang.org/dist/rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz   && \
