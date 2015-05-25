@@ -17,6 +17,8 @@ RUN apt-get update                                                              
     mkdir -p /usr/local/src/rust                                                                    && \
     mv rustc-$RUST_VERSION/src /usr/local/src/rust/                                                 && \
     chmod -R a+rx /usr/local/src/rust                                                               && \
+# remove non-rust sources (not useful for code completion) and save disk space
+    cd /usr/local/src/rust && rm -rf llvm test compiler-rt                                          && \
 # source dir
     mkdir /source                                                                                   && \
 # cleanup
