@@ -14,12 +14,15 @@ RUN apt-get update                                                              
 # install rust sources
     curl -sO https://static.rust-lang.org/dist/rustc-$RUST_VERSION-src.tar.gz                       && \
     tar -xvzf rustc-$RUST_VERSION-src.tar.gz                                                        && \
+    cd rustc-$RUST_VERSION                                                                          && \
+    rm -rf src/llvm src/test src/compiler-rt                                                        && \
     mkdir -p /usr/local/src/rust                                                                    && \
-    mv rustc-$RUST_VERSION/src /usr/local/src/rust/                                                 && \
-    chmod -R a+rx /usr/local/src/rust                                                               && \
-# remove non-rust sources (not useful for code completion) and save disk space
-    cd /usr/local/src/rust && rm -rf llvm test compiler-rt                                          && \
+    mv src /usr/local/src/rust/                                                                     && \
+# fix permissions
+    find /usr/local/src/rust -type d -exec chmod a+x {} \;                                          && \
+    chmod -R a+r /usr/local/src/rust                                                                && \
 # source dir
+    cd /                                                                                            && \
     mkdir /source                                                                                   && \
 # cleanup
     apt-get remove --purge -y curl                                                                  && \
