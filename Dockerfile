@@ -21,15 +21,9 @@ RUN apt-get update                                                              
 # fix permissions
     find /usr/local/src/rust -type d -exec chmod a+x {} \;                                          && \
     chmod -R a+r /usr/local/src/rust                                                                && \
-# source dir
-    cd /                                                                                            && \
-    mkdir /source                                                                                   && \
 # cleanup
     apt-get remove --purge -y curl                                                                  && \
     apt-get autoclean && apt-get clean                                                              && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-VOLUME ["/source"]
-WORKDIR /source
 
 CMD ["/bin/bash"]
