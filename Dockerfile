@@ -23,7 +23,7 @@ RUN apt-get update                                                              
     chmod -R a+r /usr/local/src/rust                                                                && \
 # cleanup
     apt-get remove --purge -y curl                                                                  && \
-    apt-get autoclean && apt-get clean                                                              && \
+    apt-get autoremove -y && apt-get autoclean && apt-get clean                                     && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["/bin/bash"]
