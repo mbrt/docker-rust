@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Michele Bertasi
 
-ENV RUST_VERSION=1.4.0
+ENV RUST_VERSION=1.5.0
 
 # install pagkages
 RUN apt-get update                                                                                  && \
