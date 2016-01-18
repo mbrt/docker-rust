@@ -1,16 +1,17 @@
 FROM debian:jessie
 MAINTAINER Michele Bertasi
 
-ENV RUST_VERSION=1.5.0
+ENV RUST_VERSION=1.5.0                                                                                 \
+    RUST_TARGET=x86_64_unknown-linux-gnu
 
 # install pagkages
 RUN apt-get update                                                                                  && \
     apt-get install -y --no-install-recommends build-essential curl ca-certificates git gdb         && \
 # install rust binaries
     cd /tmp                                                                                         && \
-    curl -sO https://static.rust-lang.org/dist/rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz   && \
-    tar -xvzf rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz                                    && \
-    ./rust-$RUST_VERSION-x86_64-unknown-linux-gnu/install.sh --without=rust-docs                    && \
+    curl -sO https://static.rust-lang.org/dist/rust-$RUST_VERSION-$RUST_TARGET.tar.gz               && \
+    tar -xvzf rust-$RUST_VERSION-$RUST_TARGET.tar.gz                                                && \
+    ./rust-$RUST_VERSION-$RUST_TARGET/install.sh --without=rust-docs                                && \
 # install rust sources
     curl -sO https://static.rust-lang.org/dist/rustc-$RUST_VERSION-src.tar.gz                       && \
     tar -xvzf rustc-$RUST_VERSION-src.tar.gz                                                        && \
