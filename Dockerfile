@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Michele Bertasi
 
 ENV RUST_VERSION=1.5.0                                                                                 \
-    RUST_TARGET=x86_64-unknown-linux-gnu
+    RUST_TARGET=i686-unknown-linux-gnu
 
 # install pagkages
 RUN apt-get update                                                                                  && \
