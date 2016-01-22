@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Michele Bertasi
 
-ENV RUST_VERSION=1.5.0                                                                                 \
+ENV RUST_VERSION=1.6.0                                                                                 \
     RUST_TARGET=x86_64-unknown-linux-gnu
 
 # install pagkages
